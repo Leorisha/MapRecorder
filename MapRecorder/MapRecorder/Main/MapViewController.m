@@ -11,12 +11,14 @@
 @interface MapViewController ()
 
 @property (nonatomic) CLLocationManager *locationManager;
+@property NSMutableArray *userLocations;
 
 @end
 
 @implementation MapViewController
 @synthesize mapView;
 @synthesize locationManager;
+@synthesize trackingButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,6 +83,13 @@
     [alert addAction: okButton];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    if ([trackingButton isSelected]) {
+        
+    }
+    NSLog(@"%@", locations);
 }
 
 @end
