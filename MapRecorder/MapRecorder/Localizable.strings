@@ -6,5 +6,9 @@
   Copyright © 2017 Ana Neto. All rights reserved.
 */
 
+// MapViewController
 "tracking_title_on" = "Stop Tracking";
 "tracking_title_off" = "Start Tracking";
+"user_location_error_title" = "User location error";
+"user_location_error_message" = "There was an error retrieving your location";
+"ok" = "ok";
