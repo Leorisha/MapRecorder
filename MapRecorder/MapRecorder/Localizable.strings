@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MapRecorder
+
+  Created by Ana Neto on 11/06/2017.
+  Copyright © 2017 Ana Neto. All rights reserved.
+*/
+
+"tracking_title_on" = "Stop Tracking";
+"tracking_title_off" = "Start Tracking";

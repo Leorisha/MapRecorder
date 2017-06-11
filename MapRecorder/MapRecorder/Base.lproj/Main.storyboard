@@ -35,11 +35,15 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Cl1-eg-AeZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="dka-2A-5Nh"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="nZ6-Tv-hpG">
+                            <connections>
+                                <action selector="trackingButtonPressed:" destination="BYZ-38-t0r" id="u2m-hW-9vS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="wu1-fr-dye" id="wiF-ev-j7W"/>
-                        <outlet property="trackingButton" destination="dka-2A-5Nh" id="KeH-Ti-kGs"/>
+                        <outlet property="trackingButton" destination="nZ6-Tv-hpG" id="RSQ-en-cPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

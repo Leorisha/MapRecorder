@@ -17,6 +17,7 @@
 		C2E78DC61EEC4EF7008E2EAB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DC51EEC4EF7008E2EAB /* MapKit.framework */; };
 		C2E78DC81EEC5CC9008E2EAB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */; };
 		C2E78DCC1EEC6735008E2EAB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DCB1EEC6735008E2EAB /* MapViewController.m */; };
+		C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DCD1EED9540008E2EAB /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C2E78DCA1EEC6735008E2EAB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C2E78DCB1EEC6735008E2EAB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C2E78DCD1EED9540008E2EAB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C2E78D921EEC4A47008E2EAB /* main.m */,
+				C2E78DCD1EED9540008E2EAB /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E78DA11EEC4A47008E2EAB /* LaunchScreen.storyboard in Resources */,
+				C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */,
 				C2E78D9E1EEC4A47008E2EAB /* Assets.xcassets in Resources */,
 				C2E78D9C1EEC4A47008E2EAB /* Main.storyboard in Resources */,
 			);
