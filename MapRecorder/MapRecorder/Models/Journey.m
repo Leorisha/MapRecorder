@@ -9,24 +9,32 @@
 #import "Journey.h"
 
 @implementation Journey
+@synthesize title;
+@synthesize userLocations;
+@synthesize endTime;
+@synthesize startTime;
 
 -(instancetype)initWithLocation: (CLLocation*)location {
     self = [super init];
     
     if(self) {
-        _userLocations = [[NSMutableArray alloc] initWithObjects:location,nil];
-        _startTime = location.timestamp;
+        userLocations = [[NSMutableArray alloc] initWithObjects:location,nil];
+        startTime = location.timestamp;
     }
     
     return self;
 }
 
 -(void)appendNewLocation: (CLLocation *)newLocation {
-    [_userLocations addObject:newLocation];
+    [userLocations addObject:newLocation];
+}
+
+-(void)addTitle:(NSString*)journeyName {
+    title = journeyName;
 }
 
 -(void)endJourney {
-    _endTime = ((CLLocation*)[_userLocations lastObject]).timestamp;
+    endTime = ((CLLocation*)[userLocations lastObject]).timestamp;
 }
 
 @end
