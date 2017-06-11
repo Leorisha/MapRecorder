@@ -8,10 +8,12 @@
 
 #import "MapViewController.h"
 #import "Journey.h"
+#import "JourneyManager.h"
 
 @interface MapViewController ()
 
 @property (nonatomic) CLLocationManager *locationManager;
+@property JourneyManager *journeyManager;
 @property Journey *userJourney;
 @property MKPolyline *userCurrentRoute;
 
@@ -46,17 +48,24 @@
         }
         else {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
-            [self.userJourney endJourney];
-            
-            NSLog(@"%@", self.userJourney);
+            [self endCurrentJourney];
         }
         
     }
     
 }
 
+-(void)endCurrentJourney {
+    [self.userJourney endJourney];
+    [self.journeyManager appendJourney:self.userJourney];
+    self.userJourney = nil;
+    
+    NSLog(@"%lu",(unsigned long)self.journeyManager.journeys.count);
+}
+
 -(void)prepareTracking {
     [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
+    self.journeyManager = [JourneyManager sharedInstance];
 }
 
 -(void)initializeMap {
@@ -131,8 +140,6 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
     if ([self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")]) {
-        NSLog(@"%@", locations);
-        
         CLLocation *location = [locations lastObject];
         
         if (location.horizontalAccuracy < 0)

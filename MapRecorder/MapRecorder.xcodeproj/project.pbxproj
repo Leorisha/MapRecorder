@@ -16,9 +16,12 @@
 		C2E78DB71EEC4A47008E2EAB /* MapRecorderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DB61EEC4A47008E2EAB /* MapRecorderUITests.m */; };
 		C2E78DC61EEC4EF7008E2EAB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DC51EEC4EF7008E2EAB /* MapKit.framework */; };
 		C2E78DC81EEC5CC9008E2EAB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */; };
-		C2E78DCC1EEC6735008E2EAB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DCB1EEC6735008E2EAB /* MapViewController.m */; };
 		C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DCD1EED9540008E2EAB /* Localizable.strings */; };
-		C2E78DD11EEDA57A008E2EAB /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DD01EEDA57A008E2EAB /* Journey.m */; };
+		C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */; };
+		C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DD71EEDB4F2008E2EAB /* Journey.m */; };
+		C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */; };
+		C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE11EEDB939008E2EAB /* JourneyManager.m */; };
+		C2E78DE31EEDBA8B008E2EAB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DDA1EEDB563008E2EAB /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +58,15 @@
 		C2E78DB81EEC4A47008E2EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E78DC51EEC4EF7008E2EAB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C2E78DCA1EEC6735008E2EAB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		C2E78DCB1EEC6735008E2EAB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C2E78DCD1EED9540008E2EAB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		C2E78DCF1EEDA57A008E2EAB /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
-		C2E78DD01EEDA57A008E2EAB /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
+		C2E78DD31EEDB4F2008E2EAB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C2E78DD61EEDB4F2008E2EAB /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
+		C2E78DD71EEDB4F2008E2EAB /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
+		C2E78DDA1EEDB563008E2EAB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C2E78DDD1EEDB771008E2EAB /* MapRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapRecorder.xcdatamodel; sourceTree = "<group>"; };
+		C2E78DE01EEDB939008E2EAB /* JourneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyManager.h; sourceTree = "<group>"; };
+		C2E78DE11EEDB939008E2EAB /* JourneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E78DE31EEDBA8B008E2EAB /* CoreData.framework in Frameworks */,
 				C2E78DC81EEC5CC9008E2EAB /* CoreLocation.framework in Frameworks */,
 				C2E78DC61EEC4EF7008E2EAB /* MapKit.framework in Frameworks */,
 			);
@@ -113,7 +121,9 @@
 		C2E78D901EEC4A47008E2EAB /* MapRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				C2E78DC91EEC6701008E2EAB /* Map */,
+				C2E78DDF1EEDB92B008E2EAB /* Managers */,
+				C2E78DD21EEDB4F2008E2EAB /* Controllers */,
+				C2E78DD51EEDB4F2008E2EAB /* Models */,
 				C2E78D941EEC4A47008E2EAB /* AppDelegate.h */,
 				C2E78D951EEC4A47008E2EAB /* AppDelegate.m */,
 				C2E78D9A1EEC4A47008E2EAB /* Main.storyboard */,
@@ -121,8 +131,6 @@
 				C2E78D9F1EEC4A47008E2EAB /* LaunchScreen.storyboard */,
 				C2E78DA21EEC4A47008E2EAB /* Info.plist */,
 				C2E78D911EEC4A47008E2EAB /* Supporting Files */,
-				C2E78DCF1EEDA57A008E2EAB /* Journey.h */,
-				C2E78DD01EEDA57A008E2EAB /* Journey.m */,
 			);
 			path = MapRecorder;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 			children = (
 				C2E78D921EEC4A47008E2EAB /* main.m */,
 				C2E78DCD1EED9540008E2EAB /* Localizable.strings */,
+				C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -157,20 +166,38 @@
 		C2E78DC41EEC4EF7008E2EAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2E78DDA1EEDB563008E2EAB /* CoreData.framework */,
 				C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */,
 				C2E78DC51EEC4EF7008E2EAB /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C2E78DC91EEC6701008E2EAB /* Map */ = {
+		C2E78DD21EEDB4F2008E2EAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2E78DCA1EEC6735008E2EAB /* MapViewController.h */,
-				C2E78DCB1EEC6735008E2EAB /* MapViewController.m */,
+				C2E78DD31EEDB4F2008E2EAB /* MapViewController.h */,
+				C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */,
 			);
-			name = Map;
-			path = Main;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C2E78DD51EEDB4F2008E2EAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2E78DD61EEDB4F2008E2EAB /* Journey.h */,
+				C2E78DD71EEDB4F2008E2EAB /* Journey.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2E78DDF1EEDB92B008E2EAB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E78DE01EEDB939008E2EAB /* JourneyManager.h */,
+				C2E78DE11EEDB939008E2EAB /* JourneyManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +337,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2E78DD11EEDA57A008E2EAB /* Journey.m in Sources */,
+				C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */,
+				C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */,
+				C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */,
+				C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */,
 				C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */,
-				C2E78DCC1EEC6735008E2EAB /* MapViewController.m in Sources */,
 				C2E78D931EEC4A47008E2EAB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +600,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2E78DDD1EEDB771008E2EAB /* MapRecorder.xcdatamodel */,
+			);
+			currentVersion = C2E78DDD1EEDB771008E2EAB /* MapRecorder.xcdatamodel */;
+			path = MapRecorder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C2E78D861EEC4A47008E2EAB /* Project object */;
 }
