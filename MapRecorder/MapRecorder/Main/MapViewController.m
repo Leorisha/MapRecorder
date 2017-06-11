@@ -11,8 +11,8 @@
 @interface MapViewController ()
 
 @property (nonatomic) CLLocationManager *locationManager;
-@property BOOL isTracking;
 @property NSMutableArray *userLocations;
+@property MKPolyline *userRoute;
 
 @end
 
@@ -91,6 +91,21 @@
     
 }
 
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+        
+        renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        renderer.lineWidth   = 3;
+        
+        return renderer;
+    }
+    
+    return nil;
+}
+
 // MARK: - CLLocationManagerDelegate methods
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -114,9 +129,32 @@
     
     if ([self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")]) {
         NSLog(@"%@", locations);
-    }
-    else {
-        //Do nothing
+        
+        CLLocation *location = [locations lastObject];
+        
+        if (location.horizontalAccuracy < 0)
+            return;
+        
+        if (self.userLocations == nil) {
+            self.userLocations = [[NSMutableArray alloc]init];
+        }
+        
+        [self.userLocations addObject:location];
+        NSUInteger count = [self.userLocations count];
+        
+        if (count > 1) {
+            CLLocationCoordinate2D coordinates[count];
+            for (NSInteger i = 0; i < count; i++) {
+                coordinates[i] = [(CLLocation *)self.userLocations[i] coordinate];
+            }
+            
+            MKPolyline *oldUserRoute = self.userRoute;
+            self.userRoute = [MKPolyline polylineWithCoordinates:coordinates count:count];
+            [self.mapView addOverlay:self.userRoute];
+            if (oldUserRoute)
+                [self.mapView removeOverlay:oldUserRoute];
+        }
+        
     }
     
 }
