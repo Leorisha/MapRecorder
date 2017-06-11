@@ -7,12 +7,13 @@
 //
 
 #import "MapViewController.h"
+#import "Journey.h"
 
 @interface MapViewController ()
 
 @property (nonatomic) CLLocationManager *locationManager;
-@property NSMutableArray *userLocations;
-@property MKPolyline *userRoute;
+@property Journey *userJourney;
+@property MKPolyline *userCurrentRoute;
 
 @end
 
@@ -27,7 +28,7 @@
     
     [self initializeMap];
     [self initializeLocationManager];
-    [self prepareTrackingButton];
+    [self prepareTracking];
 }
 
 
@@ -45,14 +46,16 @@
         }
         else {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
+            [self.userJourney endJourney];
+            
+            NSLog(@"%@", self.userJourney);
         }
         
     }
     
 }
 
--(void)prepareTrackingButton {
-    
+-(void)prepareTracking {
     [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
 }
 
@@ -111,12 +114,12 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     
     UIAlertController * alert = [UIAlertController
-                                 alertControllerWithTitle:@"Error"
-                                 message:@"There was an error retrieving your location"
+                                 alertControllerWithTitle:NSLocalizedString(@"user_location_error_title", "")
+                                 message:NSLocalizedString(@"user_location_error_message", "")
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* okButton = [UIAlertAction
-                                actionWithTitle:@"Ok"
+                                actionWithTitle:NSLocalizedString(@"ok", "")
                                 style:UIAlertActionStyleDefault
                                 handler:nil];
     
@@ -135,22 +138,24 @@
         if (location.horizontalAccuracy < 0)
             return;
         
-        if (self.userLocations == nil) {
-            self.userLocations = [[NSMutableArray alloc]init];
+        if (self.userJourney == nil) {
+            self.userJourney = [[Journey alloc] initWithLocation:location];
+        }
+        else {
+            [self.userJourney appendNewLocation:location];
         }
         
-        [self.userLocations addObject:location];
-        NSUInteger count = [self.userLocations count];
+        NSUInteger count = [self.userJourney.userLocations count];
         
         if (count > 1) {
             CLLocationCoordinate2D coordinates[count];
             for (NSInteger i = 0; i < count; i++) {
-                coordinates[i] = [(CLLocation *)self.userLocations[i] coordinate];
+                coordinates[i] = [(CLLocation *)self.userJourney.userLocations[i] coordinate];
             }
             
-            MKPolyline *oldUserRoute = self.userRoute;
-            self.userRoute = [MKPolyline polylineWithCoordinates:coordinates count:count];
-            [self.mapView addOverlay:self.userRoute];
+            MKPolyline *oldUserRoute = self.userCurrentRoute;
+            self.userCurrentRoute = [MKPolyline polylineWithCoordinates:coordinates count:count];
+            [self.mapView addOverlay:self.userCurrentRoute];
             if (oldUserRoute)
                 [self.mapView removeOverlay:oldUserRoute];
         }
