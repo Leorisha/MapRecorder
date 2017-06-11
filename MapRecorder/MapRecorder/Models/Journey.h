@@ -19,5 +19,6 @@
 -(instancetype)initWithLocation: (CLLocation*)location;
 -(void)appendNewLocation: (CLLocation *)newLocation;
 -(void)endJourney;
+-(void)addTitle:(NSString*)journeyName;
 
 @end

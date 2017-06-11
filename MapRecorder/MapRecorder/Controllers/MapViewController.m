@@ -57,10 +57,9 @@
 
 -(void)endCurrentJourney {
     [self.userJourney endJourney];
+    [self.userJourney addTitle: [NSString stringWithFormat:@"%@ %lu", NSLocalizedString(@"default_journey_title", ""), self.journeyManager.journeys.count]];
     [self.journeyManager appendJourney:self.userJourney];
     self.userJourney = nil;
-    
-    NSLog(@"%lu",(unsigned long)self.journeyManager.journeys.count);
 }
 
 -(void)prepareTracking {
