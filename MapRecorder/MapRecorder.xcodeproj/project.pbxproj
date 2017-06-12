@@ -26,6 +26,7 @@
 		C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE91EEE9EDC008E2EAB /* ListTableViewCell.m */; };
 		C2E78DEC1EEE9EDC008E2EAB /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */; };
 		C2E78DEF1EEECECF008E2EAB /* JourneyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DEE1EEECECF008E2EAB /* JourneyDetailViewController.m */; };
+		C2E78DF21EEEEA89008E2EAB /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DF11EEEEA89008E2EAB /* LocationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		C2E78DED1EEECECF008E2EAB /* JourneyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyDetailViewController.h; sourceTree = "<group>"; };
 		C2E78DEE1EEECECF008E2EAB /* JourneyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyDetailViewController.m; sourceTree = "<group>"; };
+		C2E78DF01EEEEA89008E2EAB /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		C2E78DF11EEEEA89008E2EAB /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +215,8 @@
 			children = (
 				C2E78DE01EEDB939008E2EAB /* JourneyManager.h */,
 				C2E78DE11EEDB939008E2EAB /* JourneyManager.m */,
+				C2E78DF01EEEEA89008E2EAB /* LocationManager.h */,
+				C2E78DF11EEEEA89008E2EAB /* LocationManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -295,6 +300,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = X82N4CHKBS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					C2E78DA61EEC4A47008E2EAB = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -370,6 +380,7 @@
 				C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */,
 				C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */,
 				C2E78DEF1EEECECF008E2EAB /* JourneyDetailViewController.m in Sources */,
+				C2E78DF21EEEEA89008E2EAB /* LocationManager.m in Sources */,
 				C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */,
 				C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */,
 				C2E78D931EEC4A47008E2EAB /* main.m in Sources */,

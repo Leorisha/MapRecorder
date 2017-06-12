@@ -14,6 +14,10 @@
 @property (nonatomic) NSMutableArray * journeys;
 
 + (id)sharedInstance;
--(void)appendJourney:(Journey *)newJourney;
+-(BOOL)isTracking;
+-(void)beginNewJourneyWith:(CLLocation*)location;
+-(void)addToCurrentJourney:(CLLocation*)location;
+-(void)endCurrentJourney;
+-(NSMutableArray*)returnCurrentJourneyLocations;
 
 @end

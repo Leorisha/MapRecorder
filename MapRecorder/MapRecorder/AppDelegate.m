@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "JourneyManager.h"
+#import "LocationManager.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +32,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if (![[JourneyManager sharedInstance] isTracking]) {
+        [[LocationManager sharedInstance] stopUpdatingLocation];
+    }
 }
 
 
