@@ -7,21 +7,17 @@
 //
 
 #import "MapViewController.h"
-#import "Journey.h"
 #import "JourneyManager.h"
 
 @interface MapViewController ()
-
-@property (nonatomic) CLLocationManager *locationManager;
+@property LocationManager *locationManager;
 @property JourneyManager *journeyManager;
-@property Journey *userJourney;
 @property MKPolyline *userCurrentRoute;
 
 @end
 
 @implementation MapViewController
 @synthesize mapView;
-@synthesize locationManager;
 @synthesize trackingButton;
 
 - (void)viewDidLoad {
@@ -29,10 +25,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self prepareController];
     [self initializeMap];
-    [self initializeLocationManager];
     [self prepareTracking];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -43,23 +41,18 @@
     
     if ((UIBarButtonItem *)sender == self.trackingButton) {
         
-        if ([trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_off", "")]) {
+        if (![self.journeyManager isTracking]) {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_on", "")];
+            [self.locationManager startUpdatingLocation];  //requesting location updates
         }
         else {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
-            [self endCurrentJourney];
+            [self.locationManager stopUpdatingLocation];
+            [self.journeyManager endCurrentJourney];
         }
         
     }
     
-}
-
--(void)endCurrentJourney {
-    [self.userJourney endJourney];
-    [self.userJourney addTitle: [NSString stringWithFormat:@"%@ %lu", NSLocalizedString(@"default_journey_title", ""), self.journeyManager.journeys.count+1]];
-    [self.journeyManager appendJourney:self.userJourney];
-    self.userJourney = nil;
 }
 
 -(void)prepareController {
@@ -71,24 +64,15 @@
 -(void)prepareTracking {
     [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
     self.journeyManager = [JourneyManager sharedInstance];
+    self.locationManager = [LocationManager sharedInstance];
+    [self.locationManager initialize];
+    self.locationManager.delegate = self;
 }
 
 -(void)initializeMap {
     mapView.showsUserLocation = YES;
     mapView.mapType = MKMapTypeHybrid;
     mapView.delegate = self;
-}
-
--(void)initializeLocationManager {
-    locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
-    locationManager.delegate = self; // we set the delegate of locationManager to self.
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
-    
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        [self.locationManager requestAlwaysAuthorization];
-    }
-    
-    [locationManager startUpdatingLocation];  //requesting location updates
 }
 
 // MARK: - MKMapViewDelegate methods
@@ -123,61 +107,39 @@
     return nil;
 }
 
-// MARK: - CLLocationManagerDelegate methods
+// MARK: - LocationManagerProtocol methods
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    
+-(BOOL)shouldTrackUserLocation {
+    return [self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")];
+}
+
+-(void)presentErrorWhenFailedToRetrieveUserLocation {
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:NSLocalizedString(@"user_location_error_title", "")
                                  message:NSLocalizedString(@"user_location_error_message", "")
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* okButton = [UIAlertAction
-                                actionWithTitle:NSLocalizedString(@"ok", "")
-                                style:UIAlertActionStyleDefault
-                                handler:nil];
+                               actionWithTitle:NSLocalizedString(@"ok", "")
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
     
     [alert addAction: okButton];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
-    if ([self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")]) {
-        
-        
-        CLLocation *location = [locations lastObject];
-        
-        if (location.horizontalAccuracy < 0)
-            return;
-        
-        if (self.userJourney == nil) {
-            self.userJourney = [[Journey alloc] initWithLocation:location];
-        }
-        else {
-            [self.userJourney appendNewLocation:location];
-        }
-        
-        NSUInteger count = [self.userJourney.userLocations count];
-        
-        NSLog(@"Tracking location number %lu", count);
-        
-        if (count > 1) {
-            CLLocationCoordinate2D coordinates[count];
-            for (NSInteger i = 0; i < count; i++) {
-                coordinates[i] = [(CLLocation *)self.userJourney.userLocations[i] coordinate];
-            }
-            
-            MKPolyline *oldUserRoute = self.userCurrentRoute;
-            self.userCurrentRoute = [MKPolyline polylineWithCoordinates:coordinates count:count];
-            [self.mapView addOverlay:self.userCurrentRoute];
-            if (oldUserRoute)
-                [self.mapView removeOverlay:oldUserRoute];
-        }
-        
+-(void)drawPolylineWith:(NSInteger)numberOfPoints andLocations:(NSMutableArray*)locations {
+    CLLocationCoordinate2D coordinates[numberOfPoints];
+    for (NSInteger i = 0; i < numberOfPoints; i++) {
+        coordinates[i] = [(CLLocation *)locations[i] coordinate];
     }
     
+    MKPolyline *oldUserRoute = self.userCurrentRoute;
+    self.userCurrentRoute = [MKPolyline polylineWithCoordinates:coordinates count:numberOfPoints];
+    [self.mapView addOverlay:self.userCurrentRoute];
+    if (oldUserRoute)
+        [self.mapView removeOverlay:oldUserRoute];
 }
 
 @end
