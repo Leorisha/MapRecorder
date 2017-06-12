@@ -84,8 +84,8 @@
     locationManager.delegate = self; // we set the delegate of locationManager to self.
     locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
     
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
     }
     
     [locationManager startUpdatingLocation];  //requesting location updates
@@ -145,6 +145,8 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
     if ([self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")]) {
+        
+        
         CLLocation *location = [locations lastObject];
         
         if (location.horizontalAccuracy < 0)
@@ -158,6 +160,8 @@
         }
         
         NSUInteger count = [self.userJourney.userLocations count];
+        
+        NSLog(@"Tracking location number %lu", count);
         
         if (count > 1) {
             CLLocationCoordinate2D coordinates[count];
