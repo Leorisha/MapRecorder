@@ -10,10 +10,12 @@
 #import "JourneyManager.h"
 #import "Journey.h"
 #import "ListTableViewCell.h"
+#import "JourneyDetailViewController.h"
 
 @interface ListViewController ()
 
 @property (nonatomic) JourneyManager *journeyManager;
+@property (nonatomic) NSInteger selectedJourneyIndex;
 
 @end
 
@@ -88,14 +90,24 @@
     return listCell;
 }
 
-/*
-#pragma mark - Navigation
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.selectedJourneyIndex = indexPath.row;
+    [self performSegueWithIdentifier:@"SegueFromListToDetail" sender:self];
+    
+}
+
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"SegueFromListToDetail"]) {
+        JourneyDetailViewController * journeyDetail = (JourneyDetailViewController*)segue.destinationViewController;
+        journeyDetail.journey = [self.journeyManager.journeys objectAtIndex:self.selectedJourneyIndex];
+    }
 }
-*/
 
 @end
