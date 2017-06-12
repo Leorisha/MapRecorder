@@ -12,3 +12,9 @@
 "user_location_error_title" = "User location error";
 "user_location_error_message" = "There was an error retrieving your location";
 "ok" = "ok";
+"default_journey_title" = "Journey";
+
+"map_title" = "Map";
+"list_title" = "Recorded Journeys";
+
+"empty_list_label" = "Currently there are no recorded journeys. \n Please use the start tracking button on the Map to start recording a new journey.";

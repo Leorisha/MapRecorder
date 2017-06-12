@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self prepareController];
     [self initializeMap];
     [self initializeLocationManager];
     [self prepareTracking];
@@ -57,9 +57,15 @@
 
 -(void)endCurrentJourney {
     [self.userJourney endJourney];
-    [self.userJourney addTitle: [NSString stringWithFormat:@"%@ %lu", NSLocalizedString(@"default_journey_title", ""), self.journeyManager.journeys.count]];
+    [self.userJourney addTitle: [NSString stringWithFormat:@"%@ %lu", NSLocalizedString(@"default_journey_title", ""), self.journeyManager.journeys.count+1]];
     [self.journeyManager appendJourney:self.userJourney];
     self.userJourney = nil;
+}
+
+-(void)prepareController {
+    [self.navigationController.tabBarController.tabBar.items objectAtIndex:0].title = NSLocalizedString(@"map_title", "");
+    [self.navigationController.tabBarController.tabBar.items objectAtIndex:1].title = NSLocalizedString(@"list_title", "");
+    self.navigationItem.title = NSLocalizedString(@"map_title", "");
 }
 
 -(void)prepareTracking {

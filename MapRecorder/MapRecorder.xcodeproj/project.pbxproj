@@ -22,6 +22,9 @@
 		C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */; };
 		C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE11EEDB939008E2EAB /* JourneyManager.m */; };
 		C2E78DE31EEDBA8B008E2EAB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DDA1EEDB563008E2EAB /* CoreData.framework */; };
+		C2E78DE61EEE9E9C008E2EAB /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE51EEE9E9C008E2EAB /* ListViewController.m */; };
+		C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE91EEE9EDC008E2EAB /* ListTableViewCell.m */; };
+		C2E78DEC1EEE9EDC008E2EAB /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,11 @@
 		C2E78DDD1EEDB771008E2EAB /* MapRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapRecorder.xcdatamodel; sourceTree = "<group>"; };
 		C2E78DE01EEDB939008E2EAB /* JourneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyManager.h; sourceTree = "<group>"; };
 		C2E78DE11EEDB939008E2EAB /* JourneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyManager.m; sourceTree = "<group>"; };
+		C2E78DE41EEE9E9C008E2EAB /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		C2E78DE51EEE9E9C008E2EAB /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		C2E78DE81EEE9EDC008E2EAB /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		C2E78DE91EEE9EDC008E2EAB /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +184,11 @@
 		C2E78DD21EEDB4F2008E2EAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2E78DE71EEE9EC7008E2EAB /* Cells */,
 				C2E78DD31EEDB4F2008E2EAB /* MapViewController.h */,
 				C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */,
+				C2E78DE41EEE9E9C008E2EAB /* ListViewController.h */,
+				C2E78DE51EEE9E9C008E2EAB /* ListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +209,16 @@
 				C2E78DE11EEDB939008E2EAB /* JourneyManager.m */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C2E78DE71EEE9EC7008E2EAB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C2E78DE81EEE9EDC008E2EAB /* ListTableViewCell.h */,
+				C2E78DE91EEE9EDC008E2EAB /* ListTableViewCell.m */,
+				C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +334,7 @@
 				C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */,
 				C2E78D9E1EEC4A47008E2EAB /* Assets.xcassets in Resources */,
 				C2E78D9C1EEC4A47008E2EAB /* Main.storyboard in Resources */,
+				C2E78DEC1EEE9EDC008E2EAB /* ListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +361,10 @@
 			files = (
 				C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */,
 				C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */,
+				C2E78DE61EEE9E9C008E2EAB /* ListViewController.m in Sources */,
 				C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */,
 				C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */,
+				C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */,
 				C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */,
 				C2E78D931EEC4A47008E2EAB /* main.m in Sources */,
 			);
