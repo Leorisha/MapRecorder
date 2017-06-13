@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "JourneyLogger.h"
 #import "Journey.h"
+#import "JourneyLog+CoreDataProperties.h"
 
-@interface JourneyDetailViewController : UIViewController
+@interface JourneyDetailViewController : UIViewController <MKMapViewDelegate>
 
-@property (nonatomic) Journey *journey;
+@property (nonatomic) JourneyLog *journey;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startTitleLabel;
