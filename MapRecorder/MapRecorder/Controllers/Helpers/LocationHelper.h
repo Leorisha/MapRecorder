@@ -1,5 +1,5 @@
 //
-//  LocationManager.h
+//  LocationHelper.h
 //  MapRecorder
 //
 //  Created by Ana Neto on 12/06/2017.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@protocol LocationManagerProtocol <NSObject>
+@protocol LocationHelperProtocol <NSObject>
 @required
 -(BOOL)shouldTrackUserLocation;
 
@@ -19,9 +19,9 @@
 
 @end
 
-@interface LocationManager : NSObject <CLLocationManagerDelegate>
+@interface LocationHelper : NSObject <CLLocationManagerDelegate>
 
-@property (nonatomic,weak) id<LocationManagerProtocol> delegate;
+@property (nonatomic,weak) id<LocationHelperProtocol> delegate;
 
 + (id)sharedInstance;
 -(void)initialize;

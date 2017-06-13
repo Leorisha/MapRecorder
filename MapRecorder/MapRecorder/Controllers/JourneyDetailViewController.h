@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JourneyManager.h"
+#import "JourneyLogger.h"
 #import "Journey.h"
 
 @interface JourneyDetailViewController : UIViewController

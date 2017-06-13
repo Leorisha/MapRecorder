@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "LocationManager.h"
+#import "LocationHelper.h"
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, LocationManagerProtocol>
+@interface MapViewController : UIViewController <MKMapViewDelegate, LocationHelperProtocol>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trackingButton;

@@ -7,14 +7,14 @@
 //
 
 #import "ListViewController.h"
-#import "JourneyManager.h"
+#import "JourneyLogger.h"
 #import "Journey.h"
 #import "ListTableViewCell.h"
 #import "JourneyDetailViewController.h"
 
 @interface ListViewController ()
 
-@property (nonatomic) JourneyManager *journeyManager;
+@property (nonatomic) JourneyLogger *journeyLog;
 @property (nonatomic) NSInteger selectedJourneyIndex;
 
 @end
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.journeyManager = [JourneyManager sharedInstance];
+    self.journeyLog = [JourneyLogger sharedInstance];
     [self prepareController];
     [self prepareTableView];
     // Do any additional setup after loading the view.
@@ -59,7 +59,7 @@
 }
 
 -(void)refreshTableView {
-    if(self.journeyManager.journeys.count == 0) {
+    if([self.journeyLog getJourneyLog].count == 0) {
         
         self.listView.hidden = YES;
         self.emptyListLabel.hidden = NO;
@@ -76,13 +76,13 @@
 // MARK: TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.journeyManager.journeys.count;
+    return [self.journeyLog getJourneyLog].count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:[ListTableViewCell cellIdentifier]];
-    Journey *journeyForCell = [self.journeyManager.journeys objectAtIndex:indexPath.row];
+    Journey *journeyForCell = [[self.journeyLog getJourneyLog] objectAtIndex:indexPath.row];
     
     [listCell.title setText:journeyForCell.title];
     [listCell.subtitle setText:@""];
@@ -106,7 +106,7 @@
     
     if ([segue.identifier isEqualToString:@"SegueFromListToDetail"]) {
         JourneyDetailViewController * journeyDetail = (JourneyDetailViewController*)segue.destinationViewController;
-        journeyDetail.journey = [self.journeyManager.journeys objectAtIndex:self.selectedJourneyIndex];
+        journeyDetail.journey = [[self.journeyLog getJourneyLog] objectAtIndex:self.selectedJourneyIndex];
     }
 }
 

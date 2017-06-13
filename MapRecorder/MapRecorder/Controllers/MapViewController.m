@@ -7,11 +7,11 @@
 //
 
 #import "MapViewController.h"
-#import "JourneyManager.h"
+#import "JourneyLogger.h"
 
 @interface MapViewController ()
-@property LocationManager *locationManager;
-@property JourneyManager *journeyManager;
+@property LocationHelper *locationManager;
+@property JourneyLogger *journeyLog;
 @property MKPolyline *userCurrentRoute;
 
 @end
@@ -41,14 +41,14 @@
     
     if ((UIBarButtonItem *)sender == self.trackingButton) {
         
-        if (![self.journeyManager isTracking]) {
+        if (![self.journeyLog isTracking]) {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_on", "")];
             [self.locationManager startUpdatingLocation];  //requesting location updates
         }
         else {
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
             [self.locationManager stopUpdatingLocation];
-            [self.journeyManager endCurrentJourney];
+            [self.journeyLog endCurrentJourney];
         }
         
     }
@@ -63,8 +63,8 @@
 
 -(void)prepareTracking {
     [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
-    self.journeyManager = [JourneyManager sharedInstance];
-    self.locationManager = [LocationManager sharedInstance];
+    self.journeyLog = [JourneyLogger sharedInstance];
+    self.locationManager = [LocationHelper sharedInstance];
     [self.locationManager initialize];
     self.locationManager.delegate = self;
 }
@@ -107,7 +107,7 @@
     return nil;
 }
 
-// MARK: - LocationManagerProtocol methods
+// MARK: - LocationHelperProtocol methods
 
 -(BOOL)shouldTrackUserLocation {
     return [self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")];
