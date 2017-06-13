@@ -1,25 +1,25 @@
 //
-//  LocationManager.m
+//  LocationHelper.m
 //  MapRecorder
 //
 //  Created by Ana Neto on 12/06/2017.
 //  Copyright © 2017 Ana Neto. All rights reserved.
 //
 
-#import "LocationManager.h"
-#import "JourneyManager.h"
+#import "LocationHelper.h"
+#import "JourneyLogger.h"
 
-@interface LocationManager ()
+@interface LocationHelper ()
 
 @property (nonatomic) CLLocationManager *locationManager;
 
 @end
 
-@implementation LocationManager
+@implementation LocationHelper
 @synthesize locationManager;
 
 + (id)sharedInstance {
-    static LocationManager *sharedInstance = nil;
+    static LocationHelper *sharedInstance = nil;
     @synchronized(self) {
         if (sharedInstance == nil)
             sharedInstance = [[self alloc] init];
@@ -66,18 +66,18 @@
         if (location.horizontalAccuracy < 0)
             return;
         
-        if (![[JourneyManager sharedInstance] isTracking]) {
-            [[JourneyManager sharedInstance] beginNewJourneyWith:location];
+        if (![[JourneyLogger sharedInstance] isTracking]) {
+            [[JourneyLogger sharedInstance] beginNewJourneyWith:location];
         }
         else {
-            [[JourneyManager sharedInstance] addToCurrentJourney:location];
+            [[JourneyLogger sharedInstance] addToCurrentJourney:location];
         }
         
-        NSUInteger count = [[[JourneyManager sharedInstance] returnCurrentJourneyLocations] count];
+        NSUInteger count = [[[JourneyLogger sharedInstance] returnCurrentJourneyLocations] count];
         NSLog(@"Tracking location number %lu", count);
         
         if (count > 1) {
-            [self.delegate drawPolylineWith:count andLocations:[[JourneyManager sharedInstance] returnCurrentJourneyLocations]];
+            [self.delegate drawPolylineWith:count andLocations:[[JourneyLogger sharedInstance] returnCurrentJourneyLocations]];
         }
         
     }

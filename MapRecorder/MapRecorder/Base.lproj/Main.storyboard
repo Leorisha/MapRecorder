@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cl1-eg-AeZ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="nZ6-Tv-hpG">
+                        <barButtonItem key="rightBarButtonItem" id="nZ6-Tv-hpG">
                             <connections>
                                 <action selector="trackingButtonPressed:" destination="BYZ-38-t0r" id="u2m-hW-9vS"/>
                             </connections>
@@ -176,6 +176,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ymx-Nw-hCg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iEX-gV-bYM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

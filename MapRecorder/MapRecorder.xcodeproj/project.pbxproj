@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C205B1391EF03B6C005BEC99 /* JourneyLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B1381EF03B6C005BEC99 /* JourneyLogger.m */; };
+		C205B13E1EF03B83005BEC99 /* JourneyLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */; };
+		C205B13F1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */; };
+		C205B1401EF03BE5005BEC99 /* MapRecorder.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */; };
+		C205F36F1EF02CAA000EBCC2 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */; };
 		C2E78D931EEC4A47008E2EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78D921EEC4A47008E2EAB /* main.m */; };
 		C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78D951EEC4A47008E2EAB /* AppDelegate.m */; };
 		C2E78D9C1EEC4A47008E2EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E78D9A1EEC4A47008E2EAB /* Main.storyboard */; };
@@ -19,14 +24,11 @@
 		C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DCD1EED9540008E2EAB /* Localizable.strings */; };
 		C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */; };
 		C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DD71EEDB4F2008E2EAB /* Journey.m */; };
-		C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */; };
-		C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE11EEDB939008E2EAB /* JourneyManager.m */; };
 		C2E78DE31EEDBA8B008E2EAB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E78DDA1EEDB563008E2EAB /* CoreData.framework */; };
 		C2E78DE61EEE9E9C008E2EAB /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE51EEE9E9C008E2EAB /* ListViewController.m */; };
 		C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DE91EEE9EDC008E2EAB /* ListTableViewCell.m */; };
 		C2E78DEC1EEE9EDC008E2EAB /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */; };
 		C2E78DEF1EEECECF008E2EAB /* JourneyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DEE1EEECECF008E2EAB /* JourneyDetailViewController.m */; };
-		C2E78DF21EEEEA89008E2EAB /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78DF11EEEEA89008E2EAB /* LocationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C205B1371EF03B6C005BEC99 /* JourneyLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyLogger.h; sourceTree = "<group>"; };
+		C205B1381EF03B6C005BEC99 /* JourneyLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyLogger.m; sourceTree = "<group>"; };
+		C205B13A1EF03B82005BEC99 /* JourneyLog+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JourneyLog+CoreDataClass.h"; sourceTree = "<group>"; };
+		C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JourneyLog+CoreDataClass.m"; sourceTree = "<group>"; };
+		C205B13C1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JourneyLog+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JourneyLog+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C205F36D1EF02CAA000EBCC2 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
+		C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		C2E78D8E1EEC4A47008E2EAB /* MapRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E78D921EEC4A47008E2EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2E78D941EEC4A47008E2EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,8 +80,6 @@
 		C2E78DD71EEDB4F2008E2EAB /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		C2E78DDA1EEDB563008E2EAB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C2E78DDD1EEDB771008E2EAB /* MapRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapRecorder.xcdatamodel; sourceTree = "<group>"; };
-		C2E78DE01EEDB939008E2EAB /* JourneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyManager.h; sourceTree = "<group>"; };
-		C2E78DE11EEDB939008E2EAB /* JourneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyManager.m; sourceTree = "<group>"; };
 		C2E78DE41EEE9E9C008E2EAB /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		C2E78DE51EEE9E9C008E2EAB /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		C2E78DE81EEE9EDC008E2EAB /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -79,8 +87,6 @@
 		C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		C2E78DED1EEECECF008E2EAB /* JourneyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyDetailViewController.h; sourceTree = "<group>"; };
 		C2E78DEE1EEECECF008E2EAB /* JourneyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyDetailViewController.m; sourceTree = "<group>"; };
-		C2E78DF01EEEEA89008E2EAB /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
-		C2E78DF11EEEEA89008E2EAB /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C205B1301EF03691005BEC99 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C205B13A1EF03B82005BEC99 /* JourneyLog+CoreDataClass.h */,
+				C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */,
+				C205B13C1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.h */,
+				C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C205F36C1EF02CAA000EBCC2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C205B1371EF03B6C005BEC99 /* JourneyLogger.h */,
+				C205B1381EF03B6C005BEC99 /* JourneyLogger.m */,
+				C205F36D1EF02CAA000EBCC2 /* LocationHelper.h */,
+				C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C2E78D851EEC4A47008E2EAB = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +163,6 @@
 		C2E78D901EEC4A47008E2EAB /* MapRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				C2E78DDF1EEDB92B008E2EAB /* Managers */,
 				C2E78DD21EEDB4F2008E2EAB /* Controllers */,
 				C2E78DD51EEDB4F2008E2EAB /* Models */,
 				C2E78D941EEC4A47008E2EAB /* AppDelegate.h */,
@@ -190,6 +217,7 @@
 		C2E78DD21EEDB4F2008E2EAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C205F36C1EF02CAA000EBCC2 /* Helpers */,
 				C2E78DE71EEE9EC7008E2EAB /* Cells */,
 				C2E78DD31EEDB4F2008E2EAB /* MapViewController.h */,
 				C2E78DD41EEDB4F2008E2EAB /* MapViewController.m */,
@@ -204,21 +232,11 @@
 		C2E78DD51EEDB4F2008E2EAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C205B1301EF03691005BEC99 /* CoreData */,
 				C2E78DD61EEDB4F2008E2EAB /* Journey.h */,
 				C2E78DD71EEDB4F2008E2EAB /* Journey.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		C2E78DDF1EEDB92B008E2EAB /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				C2E78DE01EEDB939008E2EAB /* JourneyManager.h */,
-				C2E78DE11EEDB939008E2EAB /* JourneyManager.m */,
-				C2E78DF01EEEEA89008E2EAB /* LocationManager.h */,
-				C2E78DF11EEEEA89008E2EAB /* LocationManager.m */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		C2E78DE71EEE9EC7008E2EAB /* Cells */ = {
@@ -345,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C205B1401EF03BE5005BEC99 /* MapRecorder.xcdatamodeld in Resources */,
 				C2E78DA11EEC4A47008E2EAB /* LaunchScreen.storyboard in Resources */,
 				C2E78DCE1EED9540008E2EAB /* Localizable.strings in Resources */,
 				C2E78D9E1EEC4A47008E2EAB /* Assets.xcassets in Resources */,
@@ -374,13 +393,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2E78DDE1EEDB771008E2EAB /* MapRecorder.xcdatamodeld in Sources */,
 				C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */,
+				C205B1391EF03B6C005BEC99 /* JourneyLogger.m in Sources */,
+				C205B13E1EF03B83005BEC99 /* JourneyLog+CoreDataClass.m in Sources */,
 				C2E78DE61EEE9E9C008E2EAB /* ListViewController.m in Sources */,
-				C2E78DE21EEDB939008E2EAB /* JourneyManager.m in Sources */,
 				C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */,
 				C2E78DEF1EEECECF008E2EAB /* JourneyDetailViewController.m in Sources */,
-				C2E78DF21EEEEA89008E2EAB /* LocationManager.m in Sources */,
+				C205B13F1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m in Sources */,
+				C205F36F1EF02CAA000EBCC2 /* LocationHelper.m in Sources */,
 				C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */,
 				C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */,
 				C2E78D931EEC4A47008E2EAB /* main.m in Sources */,
@@ -623,6 +643,7 @@
 				C2E78DBD1EEC4A47008E2EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2E78DBE1EEC4A47008E2EAB /* Build configuration list for PBXNativeTarget "MapRecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -631,6 +652,7 @@
 				C2E78DC01EEC4A47008E2EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2E78DC11EEC4A47008E2EAB /* Build configuration list for PBXNativeTarget "MapRecorderUITests" */ = {
 			isa = XCConfigurationList;
@@ -639,6 +661,7 @@
 				C2E78DC31EEC4A47008E2EAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

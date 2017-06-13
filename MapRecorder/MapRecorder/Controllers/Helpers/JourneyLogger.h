@@ -1,5 +1,5 @@
 //
-//  JourneyManager.h
+//  JourneyLogger.h
 //  MapRecorder
 //
 //  Created by Ana Neto on 11/06/2017.
@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Journey.h"
 
-@interface JourneyManager : NSObject
-
-@property (nonatomic) NSMutableArray * journeys;
+@interface JourneyLogger : NSObject
 
 + (id)sharedInstance;
 -(BOOL)isTracking;
+-(NSArray*)getJourneyLog;
 -(void)beginNewJourneyWith:(CLLocation*)location;
 -(void)addToCurrentJourney:(CLLocation*)location;
 -(void)endCurrentJourney;
