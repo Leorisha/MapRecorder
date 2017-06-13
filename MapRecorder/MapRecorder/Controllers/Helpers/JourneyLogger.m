@@ -82,6 +82,9 @@
     [newJourney setValue:journey.startTime forKey:@"startTime"];
     [newJourney setValue:journey.endTime forKey:@"endTime"];
     
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:journey.userLocations];
+    [newJourney setValue:arrayData forKey:@"userLocations"];
+    
     [appDelegate saveContext];
 }
 
