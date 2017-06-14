@@ -9,13 +9,14 @@
 #import "AppDelegate.h"
 #import "JourneyLogger.h"
 #import "LocationHelper.h"
+#import "EncryptedStore.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize persistentContainer, managedObjectModel, managedObjectContext;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -57,14 +58,51 @@
 
 #pragma mark - Core Data stack
 
-@synthesize persistentContainer = _persistentContainer;
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator;
+    
+    [[NSFileManager defaultManager] createDirectoryAtURL:[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] withIntermediateDirectories:NO attributes:nil error:nil];
+    
+    NSURL *databaseURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"MapRecorder.sqlite"]];
+    
+    coordinator = [EncryptedStore makeStoreWithOptions:@{
+                                                         EncryptedStorePassphraseKey : @"this_is_a_test_password",
+                                                         EncryptedStoreDatabaseLocation : [databaseURL description],
+                                                         EncryptedStoreCacheSize : @(2345)}
+                                    managedObjectModel:[self managedObjectModel]];
+    
+    if (coordinator != nil) {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MapRecorder" withExtension:@"momd"];
+    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return managedObjectModel;
+}
 
 - (NSPersistentContainer *)persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
-        if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"MapRecorder"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+        if (persistentContainer == nil) {
+            persistentContainer = [[NSPersistentContainer alloc] initWithName:@"MapRecorder"];
+            [persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -84,13 +122,13 @@
         }
     }
     
-    return _persistentContainer;
+    return persistentContainer;
 }
 
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    NSManagedObjectContext *context = self.managedObjectContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error]) {
         // Replace this implementation with code to handle the error appropriately.
