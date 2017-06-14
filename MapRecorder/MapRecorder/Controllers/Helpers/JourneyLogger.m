@@ -41,7 +41,7 @@
 
 -(NSArray*)getJourneyLog {
     AppDelegate *appDelegate = ((AppDelegate*)[[UIApplication sharedApplication] delegate]);
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
     
     NSFetchRequest<JourneyLog *> *fetchRequest = [JourneyLog fetchRequest];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
@@ -75,7 +75,7 @@
     
     AppDelegate *appDelegate = ((AppDelegate*)[[UIApplication sharedApplication] delegate]);
     
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
     NSManagedObject *newJourney = [NSEntityDescription insertNewObjectForEntityForName:@"JourneyLog" inManagedObjectContext:context];
     
     [newJourney setValue:journey.title forKey:@"title"];
