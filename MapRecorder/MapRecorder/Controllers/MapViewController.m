@@ -130,6 +130,7 @@
 }
 
 -(void)drawPolylineWith:(NSInteger)numberOfPoints andLocations:(NSMutableArray*)locations {
+    
     CLLocationCoordinate2D coordinates[numberOfPoints];
     for (NSInteger i = 0; i < numberOfPoints; i++) {
         coordinates[i] = [(CLLocation *)locations[i] coordinate];

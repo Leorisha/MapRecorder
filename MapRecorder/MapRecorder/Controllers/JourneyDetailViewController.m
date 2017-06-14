@@ -13,9 +13,7 @@
 @end
 
 @implementation JourneyDetailViewController
-@synthesize journey;
-@synthesize startTimeLabel,endTimeLabel,startTitleLabel, endTitleLabel;
-@synthesize mapView;
+@synthesize startTimeLabel,endTimeLabel,startTitleLabel, endTitleLabel, distanceLabel, distanceTitleLabel, speedLabel, speedTitleLabel, journey, mapView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +29,6 @@
 }
 
 -(void)prepareMap {
-    mapView.showsUserLocation = YES;
     mapView.mapType = MKMapTypeHybrid;
     mapView.delegate = self;
 }
@@ -41,6 +38,8 @@
     // titles
     self.startTitleLabel.text = NSLocalizedString(@"start_time_title", "");
     self.endTitleLabel.text = NSLocalizedString(@"end_time_title", "");
+    self.distanceTitleLabel.text = NSLocalizedString(@"distance_title", "");
+    self.speedTitleLabel.text = NSLocalizedString(@"speed_title", "");
     
     // values
     if (self.journey != nil && self.journey.startTime != nil && self.journey.endTime != nil && self.journey.title != nil) {
@@ -48,10 +47,42 @@
         self.startTimeLabel.text = [self convert:self.journey.startTime];
         self.endTimeLabel.text = [self convert:self.journey.endTime];
         
+        NSArray *userLocations = [NSKeyedUnarchiver unarchiveObjectWithData:self.journey.userLocations];
+        
         if (self.journey.userLocations != nil ) {
-            [self drawPolylineWith:[NSKeyedUnarchiver unarchiveObjectWithData:self.journey.userLocations]];
+            [self drawPolylineWith:userLocations];
         }
+        
+        self.distanceLabel.text = [self calculateDistanceWith:userLocations];
+        self.speedLabel.text = [self calculateSpeedWith:userLocations];
     }
+}
+
+-(NSString*)calculateSpeedWith:(NSArray*)userLocations {
+
+    CLLocationSpeed totalSpeed = 0;
+    
+    for (CLLocation *location in userLocations) {
+        totalSpeed += (location.speed * 3.6);
+    }
+    
+    return [NSString stringWithFormat:@"%f Km/s.", (totalSpeed/userLocations.count)];
+    
+}
+
+
+-(NSString*)calculateDistanceWith:(NSArray*)userLocations {
+    
+    CLLocationDistance totalKilometers = 0;
+    
+    for (int i = 0; i < (userLocations.count - 1); i++) // <-- count - 1
+    {
+        CLLocationDistance distance = [[userLocations objectAtIndex:i] distanceFromLocation:[userLocations objectAtIndex:(i + 1)]];
+        CLLocationDistance kilometers = distance / 1000.0;
+        totalKilometers += kilometers;
+    }
+    
+    return [NSString stringWithFormat:@"%f Km.", totalKilometers];
 }
 
 -(void)drawPolylineWith:(NSArray*)locations {

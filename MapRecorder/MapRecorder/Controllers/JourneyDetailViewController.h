@@ -21,6 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTitleLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *distanceTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *speedTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 
 
 @end

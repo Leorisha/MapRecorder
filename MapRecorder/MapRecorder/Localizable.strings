@@ -22,3 +22,5 @@
 // JourneyDetail
 "start_time_title" = "Start time:";
 "end_time_title" = "End time:";
+"distance_title" = "Distance:";
+"speed_title" = "Speed:";
