@@ -57,6 +57,7 @@
 		C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JourneyLog+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C205F36D1EF02CAA000EBCC2 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
 		C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
+		C2D517751EF1855200B6D61F /* MapRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapRecorder.entitlements; sourceTree = "<group>"; };
 		C2E78D8E1EEC4A47008E2EAB /* MapRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E78D921EEC4A47008E2EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2E78D941EEC4A47008E2EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 		C2E78D901EEC4A47008E2EAB /* MapRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				C2D517751EF1855200B6D61F /* MapRecorder.entitlements */,
 				C2E78DD21EEDB4F2008E2EAB /* Controllers */,
 				C2E78DD51EEDB4F2008E2EAB /* Models */,
 				C2E78D941EEC4A47008E2EAB /* AppDelegate.h */,
@@ -320,6 +322,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
 								enabled = 1;
 							};
 						};
@@ -554,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapRecorder/MapRecorder.entitlements;
 				DEVELOPMENT_TEAM = X82N4CHKBS;
 				INFOPLIST_FILE = MapRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -566,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapRecorder/MapRecorder.entitlements;
 				DEVELOPMENT_TEAM = X82N4CHKBS;
 				INFOPLIST_FILE = MapRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
