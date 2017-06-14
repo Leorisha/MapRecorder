@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-rM-bP5">
-                                <rect key="frame" x="71" y="560" width="233" height="58"/>
+                                <rect key="frame" x="71" y="502" width="233" height="116"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="MM-dd-yyyy HH:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-YB-SmB">
                                         <rect key="frame" x="61" y="8" width="164" height="18"/>
@@ -123,14 +123,38 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqJ-M5-Obd">
-                                        <rect key="frame" x="8" y="33" width="45" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="XXXX:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqJ-M5-Obd">
+                                        <rect key="frame" x="8" y="34.5" width="45" height="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM-dd-yyyy HH:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZQ-xH-3Ok">
+                                        <rect key="frame" x="61" y="59" width="164" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hX-lX-krU">
+                                        <rect key="frame" x="8" y="59.5" width="45" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSg-iC-pFe">
-                                        <rect key="frame" x="8" y="8" width="45" height="17"/>
+                                        <rect key="frame" x="8" y="8" width="45" height="18.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM-dd-yyyy HH:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jp-Y9-Hgr">
+                                        <rect key="frame" x="61" y="84" width="164" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-8e-ej1">
+                                        <rect key="frame" x="8" y="84" width="45" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -138,27 +162,45 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="leading" secondItem="3hX-lX-krU" secondAttribute="trailing" constant="8" id="3Qe-SN-bA6"/>
                                     <constraint firstItem="UG1-uJ-ghY" firstAttribute="top" secondItem="tt8-YB-SmB" secondAttribute="bottom" constant="8" id="3bP-F8-bcA"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="leading" secondItem="YNV-8e-ej1" secondAttribute="trailing" constant="8" id="4Q8-LW-LGC"/>
                                     <constraint firstItem="BqJ-M5-Obd" firstAttribute="leading" secondItem="LUu-rM-bP5" secondAttribute="leading" constant="8" id="6Bp-QP-yB6"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="centerY" secondItem="YNV-8e-ej1" secondAttribute="centerY" id="Acg-g1-cry"/>
                                     <constraint firstItem="uSg-iC-pFe" firstAttribute="leading" secondItem="LUu-rM-bP5" secondAttribute="leading" constant="8" id="Br0-wN-Z6g"/>
+                                    <constraint firstAttribute="bottom" secondItem="YNV-8e-ej1" secondAttribute="bottom" constant="15" id="DJa-NJ-cuA"/>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="top" secondItem="UG1-uJ-ghY" secondAttribute="bottom" constant="7" id="DlR-Sf-0NI"/>
                                     <constraint firstItem="BqJ-M5-Obd" firstAttribute="top" secondItem="uSg-iC-pFe" secondAttribute="bottom" constant="8" id="F1N-ae-Toz"/>
-                                    <constraint firstAttribute="bottom" secondItem="UG1-uJ-ghY" secondAttribute="bottom" constant="6" id="KTI-qK-KeK"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="leading" secondItem="YNV-8e-ej1" secondAttribute="trailing" constant="8" id="Gf4-G4-S8O"/>
+                                    <constraint firstItem="YNV-8e-ej1" firstAttribute="leading" secondItem="3hX-lX-krU" secondAttribute="leading" id="HJf-CQ-e2O"/>
+                                    <constraint firstItem="YNV-8e-ej1" firstAttribute="trailing" secondItem="3hX-lX-krU" secondAttribute="trailing" id="LTw-Dh-BrS"/>
                                     <constraint firstItem="uSg-iC-pFe" firstAttribute="top" secondItem="LUu-rM-bP5" secondAttribute="top" constant="8" id="LcW-ag-CuR"/>
                                     <constraint firstAttribute="trailing" secondItem="tt8-YB-SmB" secondAttribute="trailing" constant="8" id="OQU-cY-vZf"/>
                                     <constraint firstAttribute="trailing" secondItem="UG1-uJ-ghY" secondAttribute="trailing" constant="8" id="QO0-ap-NZD"/>
                                     <constraint firstItem="tt8-YB-SmB" firstAttribute="leading" secondItem="uSg-iC-pFe" secondAttribute="trailing" constant="8" id="RhG-qd-lPc"/>
                                     <constraint firstItem="UG1-uJ-ghY" firstAttribute="leading" secondItem="BqJ-M5-Obd" secondAttribute="trailing" constant="8" id="Se9-sL-H19"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="trailing" secondItem="KZQ-xH-3Ok" secondAttribute="trailing" id="Sji-en-fGd"/>
                                     <constraint firstItem="tt8-YB-SmB" firstAttribute="leading" secondItem="uSg-iC-pFe" secondAttribute="trailing" constant="8" id="Vau-js-K9P"/>
                                     <constraint firstItem="BqJ-M5-Obd" firstAttribute="width" secondItem="uSg-iC-pFe" secondAttribute="width" id="WSz-IS-GY1"/>
-                                    <constraint firstAttribute="bottom" secondItem="BqJ-M5-Obd" secondAttribute="bottom" constant="8" id="dx9-OW-uyw"/>
+                                    <constraint firstItem="3hX-lX-krU" firstAttribute="top" secondItem="BqJ-M5-Obd" secondAttribute="bottom" constant="8" id="Wbv-XT-q0M"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="leading" secondItem="KZQ-xH-3Ok" secondAttribute="leading" id="ZcK-lz-Mo3"/>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="leading" secondItem="UG1-uJ-ghY" secondAttribute="leading" id="a2s-ga-aFA"/>
+                                    <constraint firstItem="3hX-lX-krU" firstAttribute="trailing" secondItem="BqJ-M5-Obd" secondAttribute="trailing" id="atf-CZ-puW"/>
+                                    <constraint firstItem="3hX-lX-krU" firstAttribute="leading" secondItem="BqJ-M5-Obd" secondAttribute="leading" id="b4S-yU-9L6"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Jp-Y9-Hgr" secondAttribute="bottom" constant="14" id="eVf-r4-Ms9"/>
                                     <constraint firstItem="UG1-uJ-ghY" firstAttribute="top" secondItem="tt8-YB-SmB" secondAttribute="bottom" constant="8" id="fj5-I8-Nzh"/>
+                                    <constraint firstItem="YNV-8e-ej1" firstAttribute="top" secondItem="3hX-lX-krU" secondAttribute="bottom" constant="7.5" id="gYl-Xj-KnX"/>
                                     <constraint firstItem="BqJ-M5-Obd" firstAttribute="top" secondItem="uSg-iC-pFe" secondAttribute="bottom" constant="8" id="haM-7K-RLq"/>
                                     <constraint firstItem="UG1-uJ-ghY" firstAttribute="leading" secondItem="BqJ-M5-Obd" secondAttribute="trailing" constant="8" id="hb3-rc-m8J"/>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="trailing" secondItem="UG1-uJ-ghY" secondAttribute="trailing" id="k2k-eg-4D2"/>
                                     <constraint firstItem="tt8-YB-SmB" firstAttribute="top" secondItem="LUu-rM-bP5" secondAttribute="top" constant="8" id="loJ-W2-yrV"/>
+                                    <constraint firstItem="5Jp-Y9-Hgr" firstAttribute="top" secondItem="KZQ-xH-3Ok" secondAttribute="bottom" constant="7" id="r2c-zc-zqe"/>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="leading" secondItem="3hX-lX-krU" secondAttribute="trailing" constant="8" id="rde-KD-huV"/>
+                                    <constraint firstItem="KZQ-xH-3Ok" firstAttribute="centerY" secondItem="3hX-lX-krU" secondAttribute="centerY" id="wQt-WX-QIC"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hBs-Z8-c65">
-                                <rect key="frame" x="0.0" y="64" width="375" height="488"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="430"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,9 +215,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="btE-K8-sz6"/>
                     <connections>
+                        <outlet property="distanceLabel" destination="KZQ-xH-3Ok" id="Hod-bl-shd"/>
+                        <outlet property="distanceTitleLabel" destination="3hX-lX-krU" id="ACJ-IJ-nO1"/>
                         <outlet property="endTimeLabel" destination="UG1-uJ-ghY" id="vXg-Yu-zem"/>
                         <outlet property="endTitleLabel" destination="BqJ-M5-Obd" id="fNz-DU-KPt"/>
                         <outlet property="mapView" destination="hBs-Z8-c65" id="m7G-w3-J54"/>
+                        <outlet property="speedLabel" destination="5Jp-Y9-Hgr" id="Azc-qo-Nrg"/>
+                        <outlet property="speedTitleLabel" destination="YNV-8e-ej1" id="Qoa-n6-Mgs"/>
                         <outlet property="startTimeLabel" destination="tt8-YB-SmB" id="b4l-lB-odo"/>
                         <outlet property="startTitleLabel" destination="uSg-iC-pFe" id="kRy-mh-mmV"/>
                     </connections>
