@@ -10,11 +10,14 @@
 #import <MapKit/MapKit.h>
 #import "JourneyLogger.h"
 #import "Journey.h"
-#import "JourneyLog+CoreDataProperties.h"
+#import "Log+CoreDataProperties.h"
 
+/**
+ JourneyDetailViewController is responsible for displayed the detail of a recorded journey. It has a map and a group of details - start time, end time, distance and average speed which are some metrics than can be recorded using the user location. When a journey is selected from the ListViewController, this screen is opened and Log object is passed to it, and the information on screen is filled using it.
+ */
 @interface JourneyDetailViewController : UIViewController <MKMapViewDelegate>
 
-@property (nonatomic) JourneyLog *journey;
+@property (nonatomic) Log *journey;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;

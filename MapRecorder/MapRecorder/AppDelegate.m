@@ -18,6 +18,8 @@
 @implementation AppDelegate
 @synthesize persistentContainer, managedObjectModel, managedObjectContext;
 
+#pragma mark - AppDelegate default methods
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
@@ -33,7 +35,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
     if (![[JourneyLogger sharedInstance] isTracking]) {
+        // IF when the app is sent to background, it isn't tracking any journey, then the location manager should stop updating the location to save battery.
         [[LocationHelper sharedInstance] stopUpdatingLocation];
     }
 }
@@ -72,6 +76,8 @@
     
     NSURL *databaseURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"MapRecorder.sqlite"]];
     
+    
+    // Use of Encrypted Core Data library to increase security of saved data.
     coordinator = [EncryptedStore makeStoreWithOptions:@{
                                                          EncryptedStorePassphraseKey : @"this_is_a_test_password",
                                                          EncryptedStoreDatabaseLocation : [databaseURL description],

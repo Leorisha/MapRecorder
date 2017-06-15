@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		9F4557309030CB06ABF6B0F7 /* libPods-MapRecorderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B236C37D1DA6ABA1F3F45B /* libPods-MapRecorderUITests.a */; };
 		C205B1391EF03B6C005BEC99 /* JourneyLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B1381EF03B6C005BEC99 /* JourneyLogger.m */; };
-		C205B13E1EF03B83005BEC99 /* JourneyLog+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */; };
-		C205B13F1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */; };
+		C205B13E1EF03B83005BEC99 /* Log+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13B1EF03B82005BEC99 /* Log+CoreDataClass.m */; };
+		C205B13F1EF03B83005BEC99 /* Log+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C205B13D1EF03B83005BEC99 /* Log+CoreDataProperties.m */; };
 		C205B1401EF03BE5005BEC99 /* MapRecorder.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DDC1EEDB771008E2EAB /* MapRecorder.xcdatamodeld */; };
 		C205F36F1EF02CAA000EBCC2 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */; };
 		C2E78D931EEC4A47008E2EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E78D921EEC4A47008E2EAB /* main.m */; };
@@ -61,10 +61,10 @@
 		A42A98B8DEF8F80D23EB8ABB /* libPods-MapRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MapRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C205B1371EF03B6C005BEC99 /* JourneyLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyLogger.h; sourceTree = "<group>"; };
 		C205B1381EF03B6C005BEC99 /* JourneyLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyLogger.m; sourceTree = "<group>"; };
-		C205B13A1EF03B82005BEC99 /* JourneyLog+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JourneyLog+CoreDataClass.h"; sourceTree = "<group>"; };
-		C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JourneyLog+CoreDataClass.m"; sourceTree = "<group>"; };
-		C205B13C1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JourneyLog+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JourneyLog+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C205B13A1EF03B82005BEC99 /* Log+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Log+CoreDataClass.h"; sourceTree = "<group>"; };
+		C205B13B1EF03B82005BEC99 /* Log+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Log+CoreDataClass.m"; sourceTree = "<group>"; };
+		C205B13C1EF03B83005BEC99 /* Log+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Log+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C205B13D1EF03B83005BEC99 /* Log+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Log+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C205F36D1EF02CAA000EBCC2 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
 		C205F36E1EF02CAA000EBCC2 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		C2D517751EF1855200B6D61F /* MapRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapRecorder.entitlements; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 		C2E78DEA1EEE9EDC008E2EAB /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		C2E78DED1EEECECF008E2EAB /* JourneyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneyDetailViewController.h; sourceTree = "<group>"; };
 		C2E78DEE1EEECECF008E2EAB /* JourneyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneyDetailViewController.m; sourceTree = "<group>"; };
+		C2FA7FA61EF1A88100CEF7F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CBA67EDD3341DB50A202F439 /* Pods-MapRecorderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapRecorderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapRecorderUITests/Pods-MapRecorderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F859DA187CFB329A4C47839F /* Pods-MapRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapRecorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapRecorder/Pods-MapRecorder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,10 +150,10 @@
 		C205B1301EF03691005BEC99 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				C205B13A1EF03B82005BEC99 /* JourneyLog+CoreDataClass.h */,
-				C205B13B1EF03B82005BEC99 /* JourneyLog+CoreDataClass.m */,
-				C205B13C1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.h */,
-				C205B13D1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m */,
+				C205B13A1EF03B82005BEC99 /* Log+CoreDataClass.h */,
+				C205B13B1EF03B82005BEC99 /* Log+CoreDataClass.m */,
+				C205B13C1EF03B83005BEC99 /* Log+CoreDataProperties.h */,
+				C205B13D1EF03B83005BEC99 /* Log+CoreDataProperties.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -238,6 +239,7 @@
 		C2E78DC41EEC4EF7008E2EAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2FA7FA61EF1A88100CEF7F4 /* CloudKit.framework */,
 				C2E78DDA1EEDB563008E2EAB /* CoreData.framework */,
 				C2E78DC71EEC5CC9008E2EAB /* CoreLocation.framework */,
 				C2E78DC51EEC4EF7008E2EAB /* MapKit.framework */,
@@ -579,11 +581,11 @@
 			files = (
 				C2E78DD91EEDB4F2008E2EAB /* Journey.m in Sources */,
 				C205B1391EF03B6C005BEC99 /* JourneyLogger.m in Sources */,
-				C205B13E1EF03B83005BEC99 /* JourneyLog+CoreDataClass.m in Sources */,
+				C205B13E1EF03B83005BEC99 /* Log+CoreDataClass.m in Sources */,
 				C2E78DE61EEE9E9C008E2EAB /* ListViewController.m in Sources */,
 				C2E78DD81EEDB4F2008E2EAB /* MapViewController.m in Sources */,
 				C2E78DEF1EEECECF008E2EAB /* JourneyDetailViewController.m in Sources */,
-				C205B13F1EF03B83005BEC99 /* JourneyLog+CoreDataProperties.m in Sources */,
+				C205B13F1EF03B83005BEC99 /* Log+CoreDataProperties.m in Sources */,
 				C205F36F1EF02CAA000EBCC2 /* LocationHelper.m in Sources */,
 				C2E78DEB1EEE9EDC008E2EAB /* ListTableViewCell.m in Sources */,
 				C2E78D961EEC4A47008E2EAB /* AppDelegate.m in Sources */,

@@ -10,22 +10,27 @@
 #import "JourneyLogger.h"
 
 @interface MapViewController ()
+
 @property LocationHelper *locationManager;
-@property JourneyLogger *journeyLog;
+@property JourneyLogger *journeyLogger;
+
 @property MKPolyline *userCurrentRoute;
 
 @end
 
 @implementation MapViewController
-@synthesize mapView;
-@synthesize trackingButton;
+@synthesize mapView,trackingButton;
+
+#pragma mark - ViewController lifecycle methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     [self prepareController];
     [self initializeMap];
     [self prepareTracking];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -37,48 +42,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBAction methods
+
 - (IBAction)trackingButtonPressed:(id)sender {
     
     if ((UIBarButtonItem *)sender == self.trackingButton) {
         
-        if (![self.journeyLog isTracking]) {
+        if (![self.journeyLogger isTracking]) {
+            // if the tracking is not active
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_on", "")];
-            [self.locationManager startUpdatingLocation];  //requesting location updates
+            [self.locationManager startUpdatingLocation]; // requesting location updates
         }
         else {
+            // if tracking is active
             [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
-            [self.locationManager stopUpdatingLocation];
-            [self.journeyLog endCurrentJourney];
+            [self.locationManager stopUpdatingLocation]; // stop location updates
+            [self.journeyLogger endCurrentJourney]; // close journey
         }
         
     }
     
 }
 
+#pragma mark - Auxiliar methods
+
+/**
+ @brief this method does the UI preparation for this View controller, setting the localization strings on the necessary UI elements.
+ */
 -(void)prepareController {
     [self.navigationController.tabBarController.tabBar.items objectAtIndex:0].title = NSLocalizedString(@"map_title", "");
     [self.navigationController.tabBarController.tabBar.items objectAtIndex:1].title = NSLocalizedString(@"list_title", "");
     self.navigationItem.title = NSLocalizedString(@"map_title", "");
+    [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
 }
 
+/**
+ @brief this method does all the necessary preparation associated with the tracking action, initializing the Log and the location manager to be ready to use.
+ */
 -(void)prepareTracking {
-    [trackingButton setTitle:NSLocalizedString(@"tracking_title_off", "")];
-    self.journeyLog = [JourneyLogger sharedInstance];
+    self.journeyLogger = [JourneyLogger sharedInstance];
     self.locationManager = [LocationHelper sharedInstance];
     [self.locationManager initialize];
     self.locationManager.delegate = self;
 }
 
+/**
+ @brief this method does all the necessary configuration for the map to be used.
+ */
 -(void)initializeMap {
     mapView.showsUserLocation = YES;
     mapView.mapType = MKMapTypeHybrid;
     mapView.delegate = self;
 }
 
-// MARK: - MKMapViewDelegate methods
+
+#pragma mark - MKMapViewDelegate methods
 
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
     
+    // keps the user position to be always on the center of the map
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     span.latitudeDelta = 0.005;
@@ -96,6 +118,8 @@
 {
     if ([overlay isKindOfClass:[MKPolyline class]])
     {
+        // If there is some polyline added as overlay to the map
+        // Renders the polyline with blue color and lineWidth of 3
         MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
         
         renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
@@ -107,13 +131,22 @@
     return nil;
 }
 
-// MARK: - LocationHelperProtocol methods
+#pragma mark - LocationHelperProtocol methods
 
+/**
+ This method should return a value which will be used by the Location Helper that contains the CLocationManager instance, to define if the tracking should be enabled or disabled.
+
+ @return TRUE if tracking should be enable, FALSE otherwise.
+ */
 -(BOOL)shouldTrackUserLocation {
+    // here its defined that the app should be tracking if the trackingButton on the navigation bar is using a specific text.
     return [self.trackingButton.title isEqualToString:NSLocalizedString(@"tracking_title_on", "")];
 }
 
 -(void)presentErrorWhenFailedToRetrieveUserLocation {
+    
+    // An alert is displayed if by any chance the app receives an error when trying to update the user location.
+    
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:NSLocalizedString(@"user_location_error_title", "")
                                  message:NSLocalizedString(@"user_location_error_message", "")
@@ -131,15 +164,20 @@
 
 -(void)drawPolylineWith:(NSInteger)numberOfPoints andLocations:(NSMutableArray*)locations {
     
+    //Extracts the coordinate component of the gathered user locations of the current journey.
     CLLocationCoordinate2D coordinates[numberOfPoints];
     for (NSInteger i = 0; i < numberOfPoints; i++) {
         coordinates[i] = [(CLLocation *)locations[i] coordinate];
     }
     
+    // saves the current route
     MKPolyline *oldUserRoute = self.userCurrentRoute;
+    // creates a new polyline to represent the current route on the map using the extracted coordinates.
     self.userCurrentRoute = [MKPolyline polylineWithCoordinates:coordinates count:numberOfPoints];
+    //add it to the map
     [self.mapView addOverlay:self.userCurrentRoute];
     if (oldUserRoute)
+        //removes the old route to avoid multiple route overlapping.
         [self.mapView removeOverlay:oldUserRoute];
 }
 

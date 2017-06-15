@@ -1,5 +1,5 @@
 //
-//  JourneyLog+CoreDataClass.h
+//  Log+CoreDataClass.h
 //  MapRecorder
 //
 //  Created by Ana Neto on 13/06/2017.
@@ -11,10 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JourneyLog : NSManagedObject
+@interface Log : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "JourneyLog+CoreDataProperties.h"
+#import "Log+CoreDataProperties.h"

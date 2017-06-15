@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ This is just a simple table view cell, didn't do anything fancy here.
+ */
 @interface ListTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subtitle;
 

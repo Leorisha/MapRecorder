@@ -14,19 +14,21 @@
 
 @interface ListViewController ()
 
-@property (nonatomic) JourneyLogger *journeyLog;
+@property (nonatomic) JourneyLogger *journeyLogger;
 @property (nonatomic) NSInteger selectedJourneyIndex;
 
 @end
 
 @implementation ListViewController
-@synthesize listView;
-@synthesize emptyListLabel;
+@synthesize listView, emptyListLabel;
+
+#pragma mark - ViewController lifecycle methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.journeyLog = [JourneyLogger sharedInstance];
+    self.journeyLogger = [JourneyLogger sharedInstance];
+    
     [self prepareController];
     [self prepareTableView];
     // Do any additional setup after loading the view.
@@ -43,11 +45,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Auxiliar methods
+
+/**
+ This is where the necessary localization is made.
+ */
 -(void)prepareController {
     self.emptyListLabel.text = NSLocalizedString(@"empty_list_label", "");
     self.navigationItem.title = NSLocalizedString(@"list_title", "");
 }
 
+/**
+ This is where the tableView is prepared for use - the cells are registered the delegate and data source are assignated here too, as welll as other tableview configurations, like row height.
+ */
 -(void)prepareTableView {
     UINib *cellNib = [UINib nibWithNibName:[ListTableViewCell cellIdentifier] bundle:nil];
     [self.listView registerNib:cellNib forCellReuseIdentifier:[ListTableViewCell cellIdentifier]];
@@ -58,8 +68,11 @@
     self.listView.rowHeight = UITableViewAutomaticDimension;
 }
 
+/**
+ This method ensure that no empty table is displayed. If there is no recorded journeys, an error message is displayed on the center of the screen.
+ */
 -(void)refreshTableView {
-    if([self.journeyLog getJourneyLog].count == 0) {
+    if([self.journeyLogger getLog].count == 0) {
         
         self.listView.hidden = YES;
         self.emptyListLabel.hidden = NO;
@@ -73,16 +86,17 @@
     }
 }
 
-// MARK: TableView methods
+
+#pragma mark - TableViewDelegate and TableViewDatasource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.journeyLog getJourneyLog].count;
+    return [self.journeyLogger getLog].count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListTableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:[ListTableViewCell cellIdentifier]];
-    Journey *journeyForCell = [[self.journeyLog getJourneyLog] objectAtIndex:indexPath.row];
+    Journey *journeyForCell = [[self.journeyLogger getLog] objectAtIndex:indexPath.row];
     
     [listCell.title setText:journeyForCell.title];
     [listCell.subtitle setText:@""];
@@ -92,11 +106,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // If a cell is selected open the JourneyDetailViewController.
+    
     self.selectedJourneyIndex = indexPath.row;
     [self performSegueWithIdentifier:@"SegueFromListToDetail" sender:self];
     
 }
 
+#pragma mark - Navigation methods
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -106,7 +123,7 @@
     
     if ([segue.identifier isEqualToString:@"SegueFromListToDetail"]) {
         JourneyDetailViewController * journeyDetail = (JourneyDetailViewController*)segue.destinationViewController;
-        journeyDetail.journey = [[self.journeyLog getJourneyLog] objectAtIndex:self.selectedJourneyIndex];
+        journeyDetail.journey = [[self.journeyLogger getLog] objectAtIndex:self.selectedJourneyIndex];
     }
 }
 
