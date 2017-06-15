@@ -10,6 +10,9 @@
 #import <MapKit/MapKit.h>
 #import "LocationHelper.h"
 
+/**
+ @brief MapViewController is responsible for managing the MapView where the tracking of the user location is displayed. It implements MKMapViewDelegate - which controls the map - and LocationHelperProtocol - which managers the user location update behaviour.
+ */
 @interface MapViewController : UIViewController <MKMapViewDelegate, LocationHelperProtocol>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

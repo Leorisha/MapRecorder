@@ -15,6 +15,8 @@
 @implementation JourneyDetailViewController
 @synthesize startTimeLabel,endTimeLabel,startTitleLabel, endTitleLabel, distanceLabel, distanceTitleLabel, speedLabel, speedTitleLabel, journey, mapView;
 
+#pragma mark - ViewController lifecycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -28,11 +30,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Auxiliar methods
+
 -(void)prepareMap {
     mapView.mapType = MKMapTypeHybrid;
     mapView.delegate = self;
 }
 
+/**
+ @brief This method is responsible for filling all the information on screen.
+ */
 -(void)prepareValuesOnScreen {
     
     // titles
@@ -58,6 +65,12 @@
     }
 }
 
+/**
+ @brief This method calculates the average speed for a given Array of CLLocations.
+
+ @param userLocations journey tracked user locations.
+ @return string with value in Km/s.
+ */
 -(NSString*)calculateSpeedWith:(NSArray*)userLocations {
 
     CLLocationSpeed totalSpeed = 0;
@@ -71,6 +84,12 @@
 }
 
 
+/**
+ @brief This method calculates de total distance of the journey.
+
+ @param userLocations journey tracked user locations.
+ @return string with value in Km.
+ */
 -(NSString*)calculateDistanceWith:(NSArray*)userLocations {
     
     CLLocationDistance totalKilometers = 0;
@@ -85,6 +104,11 @@
     return [NSString stringWithFormat:@"%f Km.", totalKilometers];
 }
 
+/**
+ This methods draws the polyline for the completed journey.
+
+ @param locations journey tracked user locations.
+ */
 -(void)drawPolylineWith:(NSArray*)locations {
     
     NSInteger count = locations.count;
@@ -100,18 +124,26 @@
     [self.mapView setVisibleMapRect:[route boundingMapRect] edgePadding:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0) animated:true];
 }
 
+/**
+ This method converts a NSDate object to a readable string object.
+
+ @param date a date.
+ @return a readable string object with "MM-dd-yyyy HH:mm:ss" format.
+ */
 -(NSString*)convert:(NSDate*)date {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
     return [df stringFromDate:date];
 }
 
-// MARK: MapDelegate methods
+#pragma mark - MapViewDelegate methods
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     if ([overlay isKindOfClass:[MKPolyline class]])
     {
+        // If there is some polyline added as overlay to the map
+        // Renders the polyline with blue color and lineWidth of 3
         MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
         
         renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
